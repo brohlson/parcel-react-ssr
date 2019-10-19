@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const textType = {
+export const textTypes = {
   text: PropTypes.string.isRequired,
-  id: PropTypes.string,
+  testId: PropTypes.string,
 };

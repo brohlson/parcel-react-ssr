@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { textType } from '../util/types';
+import { textTypes } from '../util/types';
 import { font } from '../style/consts';
 
 /**
@@ -12,9 +12,10 @@ const PWrapper = styled.p`
 `;
 
 function P({ text, testId }) {
-  return <PWrapper data-testid={testId}>{text}</PWrapper>;
+  return <PWrapper data-testid={testId || null}>{text}</PWrapper>;
 }
-P.propTypes = textType.isRequired;
+
+P.propTypes = textTypes;
 
 const Text = {
   P,

@@ -2,6 +2,8 @@
 node_modules/
 dist/
 yarn-error.log
+.env
+functions/
 
 #amplify
 amplify/\#current-cloud-backend
