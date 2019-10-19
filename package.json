@@ -48,12 +48,12 @@
     "clean": "rimraf dist/ && rimraf dist-functions/ && rimraf .cache/ && rimraf node_modules/ && yarn cache clean && yarn",
     "dev": "concurrently \"yarn dev:client\" \"yarn dev:functions\"",
     "dev:client": "rimraf dist/ && node devServer.js",
-    "dev:functions": "netlify-lambda serve functions",
+    "dev:functions": "netlify-lambda serve functions-src",
     "build": "yarn build:client && yarn build:functions",
     "build:client": "rimraf dist/ && parcel build src/index.html",
-    "build:functions": "netlify-lambda build functions",
+    "build:functions": "netlify-lambda build functions-src",
     "serve:client": "parcel serve src/index.html",
-    "serve:functions": "netlify-lambda serve functions",
+    "serve:functions": "netlify-lambda serve functions-src",
     "test": "jest",
     "test:watch": "jest --watch"
   }
