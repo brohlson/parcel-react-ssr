@@ -8,6 +8,8 @@ exports.handler = function(event, context, callback) {
   callback(null, {
     statusCode: successCode,
     headers,
-    body: JSON.stringify({ msg: 'Hello, world' }),
+    body: JSON.stringify({
+      msg: 'And this is a serverless function response 🙂',
+    }),
   });
 };
