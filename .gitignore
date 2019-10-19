@@ -4,6 +4,7 @@ dist/
 yarn-error.log
 .env
 functions/
+dist-functions/
 
 #amplify
 amplify/\#current-cloud-backend
