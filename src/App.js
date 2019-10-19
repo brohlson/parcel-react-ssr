@@ -27,7 +27,7 @@ export default class App extends Component {
         <Global />
         <Reset />
         <Text.P text={'Hello, world'} />
-        <Text.P text={`I'm a parcel bundled React starter`} />
+        <Text.P text={`I'm a parcel-bundled React starter`} />
       </AppWrapper>
     );
   }
