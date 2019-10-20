@@ -48,7 +48,7 @@
   },
   "scripts": {
     "rimraf": "rimraf dist/ && rimraf functions/ && rimraf .cache/ && rimraf node_modules/",
-    "clean": "yarn prune && yarn cache clean && yarn",
+    "clean": "yarn rimraf && yarn cache clean && yarn",
     "dev": "concurrently \"yarn dev:client\" \"yarn dev:functions\"",
     "dev:client": "rimraf dist/ && node scripts/run-devServer.js",
     "dev:functions": "netlify-lambda serve api/lambda",
