@@ -25,7 +25,7 @@ export default function About() {
     <Wrapper>
       <SEO
         title="About | Parcel-React Serverless Starter"
-        meta="An opinionated, parcel-bundled serverless React starter for Netlify"
+        meta="Read more about the project here."
       />
       <Text.P text={'About'} />
       <Link to="/">Back home</Link>
