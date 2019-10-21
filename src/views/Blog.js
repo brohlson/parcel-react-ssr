@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Text from '../components/Text';
 import SEO from '../components/SEO';
+import { blogTypes } from '../util/types';
 
 const Wrapper = styled.div`
   width: 40rem;
@@ -12,17 +13,23 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-export default function About() {
+export default function Blog({ title, slug, description, body }) {
   return (
     <Wrapper>
       <SEO
-        title="About | Parcel-React Serverless Starter"
-        meta="Read more about the project here."
+        title={`${title} | Parcel-React Serverless Starter`}
+        meta={description}
+        slug={slug}
       />
-      <Text.P text={'About'} />
+      <strong>
+        <Text.P text={title} />
+      </strong>
+      <Text.P text={body} />
       <Link to="/">
         <button>Back home</button>
       </Link>
     </Wrapper>
   );
 }
+
+Blog.propTypes = blogTypes;

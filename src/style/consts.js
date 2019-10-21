@@ -36,7 +36,7 @@ export const font = {
     line-height: 160%;
     margin: 0;
     @media screen and (max-width: ${mq.tabletSmall}) {
-        font-size: 1.6rem;
+        // Your mobile rules...
     }
     `,
 };

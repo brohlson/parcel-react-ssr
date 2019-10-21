@@ -8,21 +8,14 @@ import { Link } from 'react-router-dom';
 import Text from '../components/Text';
 import endpoints from '../util/endpoints';
 import { sleep, isBrowser } from '../util/helpers';
+import { blogData } from '../util/consts';
 
 import SEO from '../components/SEO';
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #fafafa;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
+  width: 40rem;
+  max-width: 100%;
+  text-align: center;
 `;
 
 async function callApi() {
@@ -34,6 +27,14 @@ async function callApi() {
 
 export default function App() {
   const { data, error, isPending } = useAsync({ promiseFn: callApi });
+
+  function getBlogLinks() {
+    return blogData.map((page, index) => (
+      <Link key={index} to={`blog/${page.slug}`}>
+        <button>{page.title}</button>
+      </Link>
+    ));
+  }
   return (
     <Wrapper>
       <SEO
@@ -51,7 +52,10 @@ export default function App() {
             <Text.P text={error.message} />
           </strong>
         )}
-      <Link to="/about">Read more</Link>
+      <Link to="/about">
+        <button>Read more</button>
+      </Link>
+      {getBlogLinks()}
     </Wrapper>
   );
 }
