@@ -7,7 +7,7 @@ export default function SEO({ title, meta }) {
   return (
     <Helmet>
       <title>{title}</title>
-      {meta && <meta name="description" value={meta} />}
+      {meta && <meta name="description" content={meta} />}
     </Helmet>
   );
 }

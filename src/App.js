@@ -13,7 +13,7 @@ export default function App() {
       <Global />
       <Reset />
       <Router>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route path="/about">
