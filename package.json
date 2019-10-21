@@ -43,6 +43,7 @@
     "path": "^0.12.7",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
+    "react-snap": "^1.23.0",
     "react-test-renderer": "^16.10.2",
     "rimraf": "^3.0.0"
   },
@@ -58,6 +59,11 @@
     "serve:client": "parcel serve src/index.html",
     "serve:functions": "netlify-lambda serve api/lambda",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "inlineCss": true
   }
 }
