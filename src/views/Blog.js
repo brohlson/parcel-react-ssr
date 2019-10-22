@@ -8,7 +8,7 @@ import SEO from '../components/SEO';
 import { blogTypes } from '../util/types';
 
 const Wrapper = styled.div`
-  width: 40rem;
+  width: 42rem;
   max-width: 100%;
   text-align: center;
 `;

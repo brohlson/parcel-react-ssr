@@ -1,11 +1,12 @@
 /* eslint-disable quotes */
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './views/Home';
 import About from './views/About';
 import Blog from './views/Blog';
+import NotFound from './views/404';
 import Global from './style/global';
 import Reset from './style/reset';
 
@@ -24,9 +25,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1.6rem;
-  * {
-    font-size: 1.8rem;
-  }
+
   p {
     margin-bottom: 1.2rem;
   }
@@ -62,13 +61,16 @@ export default function App() {
       <Global />
       <Reset />
       <Router>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        {getDynamicPages()}
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          {getDynamicPages()}
+          <Route path="*" component={NotFound} />
+        </Switch>
       </Router>
     </Wrapper>
   );

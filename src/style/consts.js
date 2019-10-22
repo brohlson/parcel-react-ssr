@@ -32,7 +32,7 @@ export const boxShadow = {
 
 export const font = {
   p: `
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 160%;
     margin: 0;
     @media screen and (max-width: ${mq.tabletSmall}) {

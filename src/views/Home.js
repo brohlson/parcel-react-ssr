@@ -13,7 +13,7 @@ import { blogData } from '../util/consts';
 import SEO from '../components/SEO';
 
 const Wrapper = styled.div`
-  width: 40rem;
+  width: 42rem;
   max-width: 100%;
   text-align: center;
 `;

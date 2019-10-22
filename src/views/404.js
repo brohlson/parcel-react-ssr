@@ -16,10 +16,10 @@ export default function About() {
   return (
     <Wrapper>
       <SEO
-        title="About | Parcel-React Serverless Starter"
-        meta="Read more about the project here."
+        title="404 | Not Found | Parcel-React Serverless Starter"
+        meta="Page not found."
       />
-      <Text.P text={'About'} />
+      <Text.P text={'404'} />
       <Link to="/">
         <button>Back home</button>
       </Link>
