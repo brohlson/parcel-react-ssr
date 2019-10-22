@@ -1,3 +1,3 @@
 module.exports = {
-  baseUrl: 'https://parcel-react-serverless.netlify.com/',
+  baseUrl: 'https://parcel-react-ssr.netlify.com/',
 };

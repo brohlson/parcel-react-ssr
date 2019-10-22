@@ -1,6 +1,6 @@
 {
-  "name": "parcel-react-serverless",
-  "description": "An opinionated, parcel-bundled serverless React starter for Netlify",
+  "name": "parcel-react-ssr",
+  "description": "📦 Starter files for SSR-enabled, Parcel-bundled React apps",
   "version": "1.0.0",
   "author": "Chase Ohlson <chase@chaseohlson.com>",
   "license": "MIT",
