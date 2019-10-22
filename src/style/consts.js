@@ -33,7 +33,7 @@ export const boxShadow = {
 export const font = {
   p: `
     font-size: 1.6rem;
-    line-height: 160%;
+    line-height: 150%;
     margin: 0;
     @media screen and (max-width: ${mq.tabletSmall}) {
         // Your mobile rules...

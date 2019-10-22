@@ -22,8 +22,8 @@ describe('P Text', () => {
     const tree = renderer
       .create(<Text.P testId="hello" text="Hello, world" />)
       .toJSON();
-    expect(tree).toHaveStyleRule('font-size', '1.8rem');
+    expect(tree).toHaveStyleRule('font-size', '1.6rem');
     expect(tree).toHaveStyleRule('margin', '0');
-    expect(tree).toHaveStyleRule('line-height', '160%');
+    expect(tree).toHaveStyleRule('line-height', '150%');
   });
 });

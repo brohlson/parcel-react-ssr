@@ -6,7 +6,7 @@ html {
     font-family: 'Inter', sans-serif; 
     font-feature-settings: 'dlig', 'zero', 'ss01', 'cv05', 'cv10';
     font-size: 62.5%;
-    line-height: 1.15;
+    line-height: 150%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
