@@ -87,7 +87,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home users={dynamicData} />
+            <Home />
           </Route>
           <Route path="/about">
             <About />

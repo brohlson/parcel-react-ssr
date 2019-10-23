@@ -29,7 +29,7 @@ async function callApi() {
   return res.json();
 }
 
-export default function Home({ users }) {
+export default function Home() {
   const { data, error, isPending } = useAsync({ promiseFn: callApi });
 
   function getBlogLinks() {
@@ -40,9 +40,9 @@ export default function Home({ users }) {
     ));
   }
   function getUserLinks() {
-    return users.map((user, index) => (
-      <Link key={index} to={`/user/${user.id}`}>
-        <button>User {user.id}</button>
+    return [1, 2, 3].map((user, index) => (
+      <Link key={index} to={`/user/${user}`}>
+        <button>User {user}</button>
       </Link>
     ));
   }
