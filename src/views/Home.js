@@ -9,6 +9,7 @@ import Text from '../components/Text';
 import endpoints from '../util/endpoints';
 import { sleep, isBrowser } from '../util/helpers';
 import { blogData } from '../util/consts';
+import { homeTypes } from '../util/types';
 
 import SEO from '../components/SEO';
 
@@ -16,6 +17,9 @@ const Wrapper = styled.div`
   width: 42rem;
   max-width: 100%;
   text-align: center;
+  div {
+    margin-bottom: 0.8rem;
+  }
 `;
 
 async function callApi() {
@@ -25,13 +29,20 @@ async function callApi() {
   return res.json();
 }
 
-export default function App() {
+export default function Home({ users }) {
   const { data, error, isPending } = useAsync({ promiseFn: callApi });
 
   function getBlogLinks() {
     return blogData.map((page, index) => (
       <Link key={index} to={`blog/${page.slug}`}>
         <button>{page.title}</button>
+      </Link>
+    ));
+  }
+  function getUserLinks() {
+    return users.map((user, index) => (
+      <Link key={index} to={`/user/${user.id}`}>
+        <button>User {user.id}</button>
       </Link>
     ));
   }
@@ -52,10 +63,16 @@ export default function App() {
             <Text.P text={error.message} />
           </strong>
         )}
-      <Link to="/about">
-        <button>Read more</button>
-      </Link>
-      {getBlogLinks()}
+
+      <div>{getUserLinks()}</div>
+      <div>{getBlogLinks()}</div>
+      <div>
+        <Link to="/about">
+          <button>About</button>
+        </Link>
+      </div>
     </Wrapper>
   );
 }
+
+Home.propTypes = homeTypes;

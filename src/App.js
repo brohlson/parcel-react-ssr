@@ -1,17 +1,20 @@
 /* eslint-disable quotes */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import fetch from 'isomorphic-unfetch';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './views/Home';
 import About from './views/About';
 import Blog from './views/Blog';
+import User from './views/User';
 import NotFound from './views/404';
 import Global from './style/global';
 import Reset from './style/reset';
 
 import { blogData } from './util/consts';
 import { colors } from './style/consts';
+import endpoints from './util/endpoints';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -37,8 +40,8 @@ const Wrapper = styled.div`
     padding: 0.4rem 1.2rem;
   }
   a {
-    padding-top: 2rem;
     margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
     &:last-child {
       margin: 0;
     }
@@ -46,7 +49,13 @@ const Wrapper = styled.div`
 `;
 
 export default function App() {
-  function getDynamicPages() {
+  const [dynamicData, setDynamicData] = useState([]);
+
+  useEffect(() => {
+    fetchDynamicData();
+  }, []);
+
+  function getStaticPages() {
     return blogData.map((page, index) => {
       return (
         <Route key={index} path={`/blog/${page.slug}`}>
@@ -56,6 +65,21 @@ export default function App() {
     });
   }
 
+  function fetchDynamicData() {
+    fetch(endpoints.users)
+      .then(res => res.json())
+      .then(data => setDynamicData(data));
+  }
+
+  function getDynamicPages() {
+    if (!dynamicData) return;
+    return dynamicData.map((r, i) => (
+      <Route key={i} path={`/user/${r.id}`}>
+        <User {...r} />
+      </Route>
+    ));
+  }
+
   return (
     <Wrapper>
       <Global />
@@ -63,12 +87,13 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home users={dynamicData} />
           </Route>
           <Route path="/about">
             <About />
           </Route>
           {getDynamicPages()}
+          {getStaticPages()}
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

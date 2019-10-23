@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Text from '../components/Text';
 import SEO from '../components/SEO';
-import { blogTypes } from '../util/types';
+import { userTypes } from '../util/types';
 
 const Wrapper = styled.div`
   width: 42rem;
@@ -13,19 +13,14 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-export default function Blog({ title, slug, description, body }) {
+export default function User({ name, id }) {
   return (
     <Wrapper>
-      <SEO
-        title={`${title} | Parcel-React Serverless Starter`}
-        meta={description}
-        slug={slug}
-      />
+      <SEO title={`${name} | Parcel-React Serverless Starter`} />
       <strong>
-        <Text.P text={title} />
+        <Text.P text={name} />
       </strong>
-      <Text.P text={body} />
-      <Text.P text="Blog loaded with static data." />
+      <Text.P text={`User #${id} loaded with dynamic API data.`} />
       <Link to="/">
         <button>Back home</button>
       </Link>
@@ -33,4 +28,4 @@ export default function Blog({ title, slug, description, body }) {
   );
 }
 
-Blog.propTypes = blogTypes;
+User.propTypes = userTypes;

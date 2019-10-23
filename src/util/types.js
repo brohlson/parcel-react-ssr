@@ -16,3 +16,12 @@ export const blogTypes = {
   description: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
 };
+
+export const userTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+};
+
+export const homeTypes = {
+  users: PropTypes.arrayOf(PropTypes.shape(userTypes)).isRequired,
+};
